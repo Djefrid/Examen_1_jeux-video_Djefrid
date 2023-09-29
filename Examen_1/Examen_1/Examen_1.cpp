@@ -29,7 +29,12 @@ int main()
 			monAventurier.ajouterQuete(mafact.getRandomQuete());
 		else if (mafact.getRandomQuete()->getNivMin() < 15 && monAventurier.getNiv() < 15)
 			delete mafact.getRandomQuete();
-		
+		if (monAventurier.getNiv() > 15 && mafact.getRandomQuete()->getNivMin() <= 15)
+			monAventurier.ajouterQuete(mafact.getRandomQuete());
+		else if (monAventurier.getNiv() > 15 && mafact.getRandomQuete()->getNivMin() > 15 && mafact.getRandomQuete()->getNivMin() < 25 && monAventurier.getNiv() < 25)
+			monAventurier.ajouterQuete(mafact.getRandomQuete());
+		else if (mafact.getRandomQuete()->getNivMin() < 25 && monAventurier.getNiv() < 25)
+			delete mafact.getRandomQuete();
 	}
 
 	monAventurier.afficherQuete();
